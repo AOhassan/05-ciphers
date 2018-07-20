@@ -3,21 +3,16 @@ package ciphers;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-//encoding an empty string
-//decoding an empty string
-//encoding a short word
-//decoding a short word2
-//verifying encoded input is decoded back to the original input properly.
-//verifying encoding and decoding ignores non-alphabetic characters (whitespace, numbers, punctuation).
-class CipherTest {
+
+class ROT13CipherTest {
 
     @Test
     void encodeNonChar() {
 
         Cipher cipher = new Cipher();
         String payload = "hello, world";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
-        String expected = "hello, world";
+        String actual = cipher.replaceCharacters(payload, Cipher.ALPHABET,ROT13Cipher.REPLACE_ALPHABET);
+        String expected = "uryyb, jbeyq";
 
         assertEquals(expected, actual);
     }
@@ -25,9 +20,9 @@ class CipherTest {
     @Test
     void decodeNonChar() {
         Cipher cipher = new Cipher();
-        String payload = "hello world";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
-        String expected = "hello world";
+        String payload = "uryyb, jbeyq";
+        String actual = cipher.replaceCharacters(payload,ROT13Cipher.REPLACE_ALPHABET, Cipher.ALPHABET);
+        String expected = "hello, world";
 
         assertEquals(expected, actual);
     }
@@ -36,8 +31,8 @@ class CipherTest {
     void encodeWord() {
         Cipher cipher = new Cipher();
         String payload = "helloworld";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
-        String expected = "helloworld";
+        String actual = cipher.replaceCharacters(payload, Cipher.ALPHABET,ROT13Cipher.REPLACE_ALPHABET);
+        String expected = "uryybjbeyq";
 
         assertEquals(expected, actual);
     }
@@ -45,8 +40,8 @@ class CipherTest {
     @Test
     void decodeWord() {
         Cipher cipher = new Cipher();
-        String payload = "helloworld";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
+        String payload = "uryybjbeyq";
+        String actual = cipher.replaceCharacters(payload,ROT13Cipher.REPLACE_ALPHABET, Cipher.ALPHABET);
         String expected = "helloworld";
 
         assertEquals(expected, actual);
@@ -56,8 +51,8 @@ class CipherTest {
     void encodeShortWord() {
         Cipher cipher = new Cipher();
         String payload = "hello";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
-        String expected = "hello";
+        String actual = cipher.replaceCharacters(payload, Cipher.ALPHABET,ROT13Cipher.REPLACE_ALPHABET);
+        String expected = "uryyb";
 
         assertEquals(expected, actual);
     }
@@ -65,8 +60,8 @@ class CipherTest {
     @Test
     void decodeShortWord() {
         Cipher cipher = new Cipher();
-        String payload = "hello";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
+        String payload = "uryyb";
+        String actual = cipher.replaceCharacters(payload,ROT13Cipher.REPLACE_ALPHABET, Cipher.ALPHABET);
         String expected = "hello";
 
         assertEquals(expected, actual);
@@ -76,7 +71,7 @@ class CipherTest {
     void encodeEmptyString() {
         Cipher cipher = new Cipher();
         String payload = "";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
+        String actual = cipher.replaceCharacters(payload, Cipher.ALPHABET,ROT13Cipher.REPLACE_ALPHABET);
         String expected = "";
 
         assertEquals(expected, actual);
@@ -86,11 +81,10 @@ class CipherTest {
     void decodeEmptyString() {
         Cipher cipher = new Cipher();
         String payload = "";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
+        String actual = cipher.replaceCharacters(payload,ROT13Cipher.REPLACE_ALPHABET, Cipher.ALPHABET);
         String expected = "";
 
         assertEquals(expected, actual);
     }
-
 
 }
