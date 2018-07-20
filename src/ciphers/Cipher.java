@@ -20,6 +20,7 @@ public class Cipher {
               atChar = String.valueOf(payload.charAt(i));
               newChar += atChar;
             }
+            i++;
         }
         return newChar;
 
@@ -30,7 +31,7 @@ public class Cipher {
         Scanner userInput = new Scanner(System.in);
         payload = userInput.nextLine();
 
-        return replaceCharacters(payload, REPLACE_ALPHABET, ALPHABET);
+        return replaceCharacters(payload, ALPHABET, REPLACE_ALPHABET);
     }
 
     public String decode(String payload) {
