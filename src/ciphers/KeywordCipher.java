@@ -18,8 +18,9 @@ public class KeywordCipher extends Cipher {
             if (!newKeyword.contains(String.valueOf(keyword.charAt(i)))) {
                 newKeyword += String.valueOf(keyword.charAt(i));
 
-                i++;
+
             }
+            i++;
         }
         return newKeyword;
     }
@@ -30,17 +31,23 @@ public class KeywordCipher extends Cipher {
             if (!NewKeyword().contains(String.valueOf(ALPHABET.charAt(i)))) {
                 newAlphabet += String.valueOf(ALPHABET.charAt(i));
 
-                i++;
             }
+            i++;
         }
         return newAlphabet;
     }
 
     public String encode (String payload){
 
+        System.out.println("\nplaintext: " + ALPHABET);
+        System.out.println("ciphertext: " + REPLACE_ALPHABET+ "\n");
+
         return replaceCharacters(payload, ALPHABET, REPLACE_ALPHABET);
     }
     public String decode(String payload) {
+
+        System.out.println("\nciphertext: " + ALPHABET);
+        System.out.println("plaintext: " + REPLACE_ALPHABET+ "\n");
 
         return replaceCharacters(payload, REPLACE_ALPHABET, ALPHABET);
     }
