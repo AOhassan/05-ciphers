@@ -1,5 +1,4 @@
 package ciphers;
-
 import java.util.Scanner;
 
 public class Cipher {
@@ -22,26 +21,14 @@ public class Cipher {
             }
             i++;
         }
+        System.out.println("Returned : " + newChar);
         return newChar;
-
     }
-
     public String encode(String payload) {
-        System.out.println("Enter Text To Be Encoded: ");
-        Scanner userInput = new Scanner(System.in);
-        payload = userInput.nextLine();
-
         return replaceCharacters(payload, ALPHABET, REPLACE_ALPHABET);
     }
 
     public String decode(String payload) {
-        System.out.println("Enter Text To Be Decoded: ");
-        Scanner userInput = new Scanner(System.in);
-        payload = userInput.nextLine();
-
         return replaceCharacters(payload, REPLACE_ALPHABET, ALPHABET);
-
     }
-
-
 }

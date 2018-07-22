@@ -9,9 +9,9 @@ class ROT13CipherTest {
     @Test
     void encodeNonChar() {
 
-        Cipher cipher = new Cipher();
+        Cipher cipher = new ROT13Cipher();
         String payload = "hello, world";
-        String actual = cipher.replaceCharacters(payload, Cipher.ALPHABET,ROT13Cipher.REPLACE_ALPHABET);
+        String actual = cipher.encode(payload);
         String expected = "uryyb, jbeyq";
 
         assertEquals(expected, actual);
@@ -19,9 +19,9 @@ class ROT13CipherTest {
 
     @Test
     void decodeNonChar() {
-        Cipher cipher = new Cipher();
+        Cipher cipher = new ROT13Cipher();
         String payload = "uryyb, jbeyq";
-        String actual = cipher.replaceCharacters(payload,ROT13Cipher.REPLACE_ALPHABET, Cipher.ALPHABET);
+        String actual = cipher.decode(payload);
         String expected = "hello, world";
 
         assertEquals(expected, actual);
@@ -29,9 +29,9 @@ class ROT13CipherTest {
 
     @Test
     void encodeWord() {
-        Cipher cipher = new Cipher();
+        Cipher cipher = new ROT13Cipher();
         String payload = "helloworld";
-        String actual = cipher.replaceCharacters(payload, Cipher.ALPHABET,ROT13Cipher.REPLACE_ALPHABET);
+        String actual = cipher.encode(payload);
         String expected = "uryybjbeyq";
 
         assertEquals(expected, actual);
@@ -39,9 +39,9 @@ class ROT13CipherTest {
 
     @Test
     void decodeWord() {
-        Cipher cipher = new Cipher();
+        Cipher cipher = new ROT13Cipher();
         String payload = "uryybjbeyq";
-        String actual = cipher.replaceCharacters(payload,ROT13Cipher.REPLACE_ALPHABET, Cipher.ALPHABET);
+        String actual = cipher.decode(payload);
         String expected = "helloworld";
 
         assertEquals(expected, actual);
@@ -49,9 +49,9 @@ class ROT13CipherTest {
 
     @Test
     void encodeShortWord() {
-        Cipher cipher = new Cipher();
+        Cipher cipher = new ROT13Cipher();
         String payload = "hello";
-        String actual = cipher.replaceCharacters(payload, Cipher.ALPHABET,ROT13Cipher.REPLACE_ALPHABET);
+        String actual = cipher.encode(payload);
         String expected = "uryyb";
 
         assertEquals(expected, actual);
@@ -59,9 +59,9 @@ class ROT13CipherTest {
 
     @Test
     void decodeShortWord() {
-        Cipher cipher = new Cipher();
+        Cipher cipher = new ROT13Cipher();
         String payload = "uryyb";
-        String actual = cipher.replaceCharacters(payload,ROT13Cipher.REPLACE_ALPHABET, Cipher.ALPHABET);
+        String actual = cipher.decode(payload);
         String expected = "hello";
 
         assertEquals(expected, actual);
@@ -69,9 +69,9 @@ class ROT13CipherTest {
 
     @Test
     void encodeEmptyString() {
-        Cipher cipher = new Cipher();
+        Cipher cipher = new ROT13Cipher();
         String payload = "";
-        String actual = cipher.replaceCharacters(payload, Cipher.ALPHABET,ROT13Cipher.REPLACE_ALPHABET);
+        String actual = cipher.encode(payload);
         String expected = "";
 
         assertEquals(expected, actual);
@@ -79,9 +79,9 @@ class ROT13CipherTest {
 
     @Test
     void decodeEmptyString() {
-        Cipher cipher = new Cipher();
+        Cipher cipher = new ROT13Cipher();
         String payload = "";
-        String actual = cipher.replaceCharacters(payload,ROT13Cipher.REPLACE_ALPHABET, Cipher.ALPHABET);
+        String actual = cipher.decode(payload);
         String expected = "";
 
         assertEquals(expected, actual);

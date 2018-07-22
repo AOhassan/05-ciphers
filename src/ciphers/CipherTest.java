@@ -3,12 +3,7 @@ package ciphers;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-//encoding an empty string
-//decoding an empty string
-//encoding a short word
-//decoding a short word2
-//verifying encoded input is decoded back to the original input properly.
-//verifying encoding and decoding ignores non-alphabetic characters (whitespace, numbers, punctuation).
+
 class CipherTest {
 
     @Test
@@ -16,7 +11,7 @@ class CipherTest {
 
         Cipher cipher = new Cipher();
         String payload = "hello, world";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
+        String actual = cipher.encode(payload);
         String expected = "hello, world";
 
         assertEquals(expected, actual);
@@ -26,7 +21,7 @@ class CipherTest {
     void decodeNonChar() {
         Cipher cipher = new Cipher();
         String payload = "hello world";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
+        String actual = cipher.decode(payload);
         String expected = "hello world";
 
         assertEquals(expected, actual);
@@ -36,7 +31,7 @@ class CipherTest {
     void encodeWord() {
         Cipher cipher = new Cipher();
         String payload = "helloworld";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
+        String actual = cipher.encode(payload);
         String expected = "helloworld";
 
         assertEquals(expected, actual);
@@ -46,7 +41,7 @@ class CipherTest {
     void decodeWord() {
         Cipher cipher = new Cipher();
         String payload = "helloworld";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
+        String actual = cipher.decode(payload);
         String expected = "helloworld";
 
         assertEquals(expected, actual);
@@ -56,7 +51,7 @@ class CipherTest {
     void encodeShortWord() {
         Cipher cipher = new Cipher();
         String payload = "hello";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
+        String actual = cipher.encode(payload);
         String expected = "hello";
 
         assertEquals(expected, actual);
@@ -66,7 +61,7 @@ class CipherTest {
     void decodeShortWord() {
         Cipher cipher = new Cipher();
         String payload = "hello";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
+        String actual = cipher.decode(payload);
         String expected = "hello";
 
         assertEquals(expected, actual);
@@ -76,7 +71,7 @@ class CipherTest {
     void encodeEmptyString() {
         Cipher cipher = new Cipher();
         String payload = "";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
+        String actual = cipher.encode(payload);
         String expected = "";
 
         assertEquals(expected, actual);
@@ -86,7 +81,7 @@ class CipherTest {
     void decodeEmptyString() {
         Cipher cipher = new Cipher();
         String payload = "";
-        String actual = cipher.replaceCharacters(payload,Cipher.ALPHABET,Cipher.ALPHABET);
+        String actual = cipher.decode(payload);
         String expected = "";
 
         assertEquals(expected, actual);
